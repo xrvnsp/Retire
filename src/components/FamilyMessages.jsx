@@ -8,13 +8,13 @@ const messages = [
     text: "Your dedication to your work has always been an inspiration to me. I'm so proud of all you've achieved."
   },
   {
-    name: "Arun & Divya",
-    relation: "Son & Daughter-in-law",
+    name: "Venkatesh",
+    relation: "Son",
     text: "To the best mom and headmistress, congratulations on a wonderful career. Now it's time to relax and enjoy!"
   },
   {
-    name: "Deepika",
-    relation: "Daughter",
+    name: "Kayalvizhi & Saravana Prakash",
+    relation: "Daughter & Son-in-law",
     text: "You've taught thousands of children, but to me, you've always been my first and best teacher. Love you, Amma!"
   },
   {
