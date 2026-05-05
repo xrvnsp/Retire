@@ -1,16 +1,16 @@
 :root {
-  --primary: #6A0DAD; /* Deep Purple */
-  --primary-light: #F3E5F5; /* Soft Lavender */
-  --primary-dark: #311B92; /* Royal Purple */
+  --primary: #FFD700; /* Rich Gold/Yellow */
+  --primary-light: #FFF9C4; /* Soft Yellow */
+  --primary-dark: #B8860B;
   --secondary: #1A1A1A;
-  --accent: #D4AF37; /* Premium Gold Accent */
+  --accent: #FF5722;
   --bg: #FFFFFF;
-  --brick-white: #FAFAFA;
-  --brick-purple: #F3E5F5;
+  --brick-white: #F5F5F5;
+  --brick-yellow: #FFF176;
   --text: #2D2D2D;
   --text-muted: #666;
-  --glass: rgba(255, 255, 255, 0.9);
-  --glass-border: rgba(106, 13, 173, 0.2);
+  --glass: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 215, 0, 0.3);
   
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Inter', sans-serif;
@@ -57,10 +57,10 @@ h1, h2, h3, h4 {
     12px 12px 0px rgba(0,0,0,0.1);
 }
 
-.brick-card-purple {
-  background: var(--brick-purple);
+.brick-card-yellow {
+  background: var(--brick-yellow);
   box-shadow: 
-    4px 4px 0px var(--primary-dark),
+    4px 4px 0px var(--secondary),
     8px 8px 0px rgba(0,0,0,0.1);
 }
 
@@ -70,7 +70,7 @@ h1, h2, h3, h4 {
   -webkit-backdrop-filter: blur(12px);
   border: 2px solid var(--glass-border);
   border-radius: 30px;
-  box-shadow: 0 15px 35px rgba(106, 13, 173, 0.1);
+  box-shadow: 0 15px 35px rgba(255, 215, 0, 0.1);
 }
 
 .container {

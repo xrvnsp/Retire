@@ -53,7 +53,7 @@ const FamilyMessages = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
-              className={index % 2 === 0 ? "brick-card" : "brick-card-purple"}
+              className={index % 2 === 0 ? "brick-card" : "brick-card-yellow"}
               style={{ 
                 padding: isMobile ? '2rem 1.5rem' : '3rem 2rem', 
                 display: 'flex',
@@ -62,7 +62,7 @@ const FamilyMessages = () => {
               }}
             >
               <div>
-                <Quote size={isMobile ? 30 : 40} color={index % 2 === 0 ? "var(--primary)" : "var(--primary-dark)"} style={{ opacity: 0.2, marginBottom: '1rem' }} />
+                <Quote size={isMobile ? 30 : 40} color={index % 2 === 0 ? "var(--primary)" : "var(--secondary)"} style={{ opacity: 0.2, marginBottom: '1rem' }} />
                 <p style={{ 
                   fontSize: isMobile ? '1rem' : '1.1rem', 
                   fontStyle: 'italic', 
@@ -74,9 +74,9 @@ const FamilyMessages = () => {
                 </p>
               </div>
               <div style={{ borderTop: `1px solid ${index % 2 === 0 ? '#eee' : 'rgba(0,0,0,0.1)'}`, paddingTop: '1rem' }}>
-                <h4 style={{ fontSize: '1.1rem', color: 'var(--primary-dark)', fontWeight: 'bold' }}>{msg.name}</h4>
+                <h4 style={{ fontSize: '1.1rem', color: 'var(--secondary)', fontWeight: 'bold' }}>{msg.name}</h4>
                 <span style={{ 
-                  color: index % 2 === 0 ? 'var(--primary-dark)' : 'var(--primary-dark)', 
+                  color: index % 2 === 0 ? 'var(--primary-dark)' : 'var(--secondary)', 
                   fontWeight: '600',
                   opacity: 0.8,
                   fontSize: '0.85rem'

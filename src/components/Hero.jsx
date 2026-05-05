@@ -88,7 +88,7 @@ const Hero = () => {
               marginBottom: '1.5rem',
               fontFamily: 'var(--font-serif)'
             }}>
-              A Legacy of <span style={{ color: 'var(--primary-light)' }}>Impact.</span>
+              A Legacy of <span style={{ color: 'var(--primary)' }}>Impact.</span>
             </h1>
 
             <p style={{ 
@@ -108,11 +108,11 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
             >
-              <a href="#milestones" className="brick-card-purple" style={{
+              <a href="#milestones" className="brick-card-yellow" style={{
                 padding: '1.2rem 2.5rem',
                 fontSize: '1.1rem',
                 textDecoration: 'none',
-                color: 'var(--primary-dark)',
+                color: 'var(--secondary)',
                 fontWeight: 'bold',
                 borderRadius: '4px',
                 display: 'inline-block',
@@ -152,7 +152,7 @@ const Hero = () => {
                 color: 'white',
                 textAlign: 'left'
               }}>
-                <h3 style={{ fontSize: isMobile ? '1.4rem' : '1.8rem', color: 'var(--primary-light)' }}>Mrs. Sellammal</h3>
+                <h3 style={{ fontSize: isMobile ? '1.4rem' : '1.8rem', color: 'var(--primary)' }}>Mrs. Sellammal</h3>
                 <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Headmistress, PUMS Kuthalam</p>
               </div>
             </div>
@@ -179,7 +179,7 @@ const Hero = () => {
               <motion.div
                 animate={{ y: [0, 15, 0] }}
                 transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-                className="brick-card-purple"
+                className="brick-card-yellow"
                 style={{
                   position: 'absolute',
                   bottom: '40px',
