@@ -167,11 +167,11 @@ const Hero = () => {
               className="brick-card"
               style={{
                 position: 'absolute',
-                top: isMobile ? '-10px' : '-25px',
-                right: isMobile ? '-10px' : '-30px',
+                top: isMobile ? '-10px' : '-35px',
+                right: isMobile ? '-10px' : '-45px',
                 padding: '10px 20px',
                 backgroundColor: 'white',
-                zIndex: 20,
+                zIndex: 25,
                 fontSize: '0.95rem',
                 color: 'var(--primary-dark)',
                 fontWeight: 'bold'
@@ -182,15 +182,15 @@ const Hero = () => {
 
             {!isMobile && (
               <motion.div
-                animate={{ y: [0, 18, 0] }}
+                animate={{ y: [0, 15, 0] }}
                 transition={{ duration: 4, repeat: Infinity, delay: 1 }}
                 className="brick-card-purple"
                 style={{
                   position: 'absolute',
-                  bottom: '50px',
-                  left: '-50px',
+                  bottom: '-25px', // Move below the name area
+                  left: '-40px',   // Shift further left
                   padding: '12px 24px',
-                  zIndex: 20,
+                  zIndex: 25,
                   boxShadow: '6px 6px 0px #301934',
                   fontWeight: 'bold',
                   color: 'var(--primary-dark)'
