@@ -1,16 +1,16 @@
 :root {
-  --primary: #FFD700; /* Rich Gold/Yellow */
-  --primary-light: #FFF9C4; /* Soft Yellow */
-  --primary-dark: #B8860B;
-  --secondary: #1A1A1A;
-  --accent: #FF5722;
+  --primary: #6A0DAD; /* Royal Purple */
+  --primary-light: #F8F4FF; /* Ultra Soft Lilac */
+  --primary-dark: #301934; /* Midnight Purple */
+  --secondary: #1A1A1A; /* Charcoal Black */
+  --accent: #9370DB; /* Medium Purple */
   --bg: #FFFFFF;
-  --brick-white: #F5F5F5;
-  --brick-yellow: #FFF176;
+  --brick-white: #FAFAFA;
+  --brick-purple: #F3E5F5;
   --text: #2D2D2D;
   --text-muted: #666;
-  --glass: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(255, 215, 0, 0.3);
+  --glass: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(106, 13, 173, 0.15);
   
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Inter', sans-serif;
@@ -34,18 +34,18 @@ body {
 
 h1, h2, h3, h4 {
   font-family: var(--font-serif);
-  color: var(--secondary);
+  color: var(--primary-dark);
 }
 
 /* Brick Style Utility */
 .brick-card {
   background: white;
-  border-radius: 4px; /* Sharper, brick-like corners */
+  border-radius: 4px;
   box-shadow: 
     4px 4px 0px var(--primary),
-    8px 8px 0px rgba(0,0,0,0.1);
+    12px 12px 0px rgba(106, 13, 173, 0.05);
   padding: 2rem;
-  border: 1px solid #ddd;
+  border: 1px solid #eee;
   position: relative;
   transition: var(--transition-smooth);
 }
@@ -54,23 +54,23 @@ h1, h2, h3, h4 {
   transform: translate(-4px, -4px);
   box-shadow: 
     8px 8px 0px var(--primary-dark),
-    12px 12px 0px rgba(0,0,0,0.1);
+    16px 16px 0px rgba(106, 13, 173, 0.1);
 }
 
-.brick-card-yellow {
-  background: var(--brick-yellow);
+.brick-card-purple {
+  background: var(--brick-purple);
   box-shadow: 
-    4px 4px 0px var(--secondary),
-    8px 8px 0px rgba(0,0,0,0.1);
+    4px 4px 0px var(--primary-dark),
+    10px 10px 0px rgba(0,0,0,0.05);
 }
 
 .glass {
   background: var(--glass);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 2px solid var(--glass-border);
+  border: 1px solid var(--glass-border);
   border-radius: 30px;
-  box-shadow: 0 15px 35px rgba(255, 215, 0, 0.1);
+  box-shadow: 0 15px 35px rgba(106, 13, 173, 0.1);
 }
 
 .container {
@@ -104,5 +104,5 @@ section {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b8932e;
+  background: var(--primary-dark);
 }

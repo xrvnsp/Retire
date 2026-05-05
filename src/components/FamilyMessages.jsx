@@ -29,57 +29,63 @@ const FamilyMessages = () => {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
   return (
-    <section className="family-messages" style={{ backgroundColor: '#fff', padding: isMobile ? '60px 0' : '100px 0' }}>
+    <section className="family-messages" style={{ backgroundColor: '#fff', padding: isMobile ? '70px 0' : '120px 0' }}>
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: isMobile ? '3rem' : '5rem' }}
+          style={{ textAlign: 'center', marginBottom: isMobile ? '4rem' : '7rem' }}
         >
-          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>Heartfelt <span style={{ color: 'var(--primary-dark)' }}>Notes</span></h2>
-          <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--primary)', margin: '1rem auto' }} />
+          <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', color: 'var(--primary-dark)' }}>Heartfelt <span style={{ color: 'var(--primary)' }}>Notes</span></h2>
+          <div style={{ width: '80px', height: '5px', backgroundColor: 'var(--primary)', margin: '1.5rem auto', borderRadius: '10px', opacity: 0.3 }} />
         </motion.div>
 
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(280px, 1fr))', 
-          gap: isMobile ? '2rem' : '3rem' 
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(320px, 1fr))', 
+          gap: isMobile ? '2.5rem' : '4rem' 
         }}>
           {messages.map((msg, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
-              className={index % 2 === 0 ? "brick-card" : "brick-card-yellow"}
+              transition={{ delay: index * 0.15, duration: 0.8 }}
+              className={index % 2 === 0 ? "brick-card" : "brick-card-purple"}
               style={{ 
-                padding: isMobile ? '2rem 1.5rem' : '3rem 2rem', 
+                padding: isMobile ? '2.5rem 2rem' : '4rem 3rem', 
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                border: 'none',
+                boxShadow: index % 2 === 0 
+                  ? '0 20px 40px rgba(106, 13, 173, 0.05)' 
+                  : '4px 4px 0px var(--primary-dark)'
               }}
             >
               <div>
-                <Quote size={isMobile ? 30 : 40} color={index % 2 === 0 ? "var(--primary)" : "var(--secondary)"} style={{ opacity: 0.2, marginBottom: '1rem' }} />
+                <Quote size={isMobile ? 40 : 50} color="var(--primary)" style={{ opacity: 0.15, marginBottom: '2rem' }} />
                 <p style={{ 
-                  fontSize: isMobile ? '1rem' : '1.1rem', 
+                  fontSize: isMobile ? '1.1rem' : '1.25rem', 
                   fontStyle: 'italic', 
-                  marginBottom: '1.5rem',
+                  marginBottom: '2.5rem',
                   color: 'var(--text)',
-                  lineHeight: '1.7'
+                  lineHeight: '1.8',
+                  fontWeight: '300'
                 }}>
                   "{msg.text}"
                 </p>
               </div>
-              <div style={{ borderTop: `1px solid ${index % 2 === 0 ? '#eee' : 'rgba(0,0,0,0.1)'}`, paddingTop: '1rem' }}>
-                <h4 style={{ fontSize: '1.1rem', color: 'var(--secondary)', fontWeight: 'bold' }}>{msg.name}</h4>
+              <div style={{ borderTop: `1px solid ${index % 2 === 0 ? '#F3E5F5' : 'rgba(48, 25, 52, 0.1)'}`, paddingTop: '2rem' }}>
+                <h4 style={{ fontSize: '1.3rem', color: 'var(--primary-dark)', fontWeight: 'bold', marginBottom: '0.3rem' }}>{msg.name}</h4>
                 <span style={{ 
-                  color: index % 2 === 0 ? 'var(--primary-dark)' : 'var(--secondary)', 
-                  fontWeight: '600',
-                  opacity: 0.8,
-                  fontSize: '0.85rem'
+                  color: 'var(--primary)', 
+                  fontWeight: '700',
+                  letterSpacing: '1px',
+                  fontSize: '0.85rem',
+                  textTransform: 'uppercase'
                 }}>
                   {msg.relation}
                 </span>
