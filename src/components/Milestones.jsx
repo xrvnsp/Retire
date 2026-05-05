@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useMediaQuery } from './useMediaQuery'; // I'll create this helper
 
 const milestones = [
   {
@@ -39,28 +40,30 @@ const milestones = [
 ];
 
 const Milestones = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
   return (
-    <section id="milestones" className="milestones" style={{ backgroundColor: '#fcfcfc', overflow: 'hidden' }}>
+    <section id="milestones" className="milestones" style={{ backgroundColor: '#fcfcfc', overflow: 'hidden', padding: isMobile ? '60px 0' : '100px 0' }}>
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: '6rem' }}
+          style={{ textAlign: 'center', marginBottom: isMobile ? '3rem' : '6rem' }}
         >
-          <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', color: 'var(--secondary)' }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', color: 'var(--secondary)' }}>
             Building a Legacy <span style={{ color: 'var(--primary-dark)' }}>Brick by Brick</span>
           </h2>
-          <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginTop: '1rem' }}>
+          <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginTop: '1rem' }}>
             A career built on foundation, strength, and unwavering dedication.
           </p>
         </motion.div>
 
         <div style={{ position: 'relative', maxWidth: '1000px', margin: '0 auto' }}>
-          {/* Central Path */}
+          {/* Central Path - Move to left on mobile */}
           <div style={{
             position: 'absolute',
-            left: '50%',
+            left: isMobile ? '20px' : '50%',
             transform: 'translateX(-50%)',
             width: '4px',
             height: '100%',
@@ -71,7 +74,7 @@ const Milestones = () => {
           {milestones.map((item, index) => (
             <motion.div 
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -150 : 150, rotate: index % 2 === 0 ? -5 : 5 }}
+              initial={{ opacity: 0, x: isMobile ? 50 : (index % 2 === 0 ? -150 : 150), rotate: isMobile ? 0 : (index % 2 === 0 ? -5 : 5) }}
               whileInView={{ opacity: 1, x: 0, rotate: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ 
@@ -82,24 +85,25 @@ const Milestones = () => {
               }}
               style={{
                 display: 'flex',
-                justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start',
+                justifyContent: isMobile ? 'flex-start' : (index % 2 === 0 ? 'flex-end' : 'flex-start'),
                 alignItems: 'center',
                 width: '100%',
-                marginBottom: '5rem',
+                marginBottom: isMobile ? '3rem' : '5rem',
                 position: 'relative',
-                zIndex: 2
+                zIndex: 2,
+                paddingLeft: isMobile ? '50px' : '0'
               }}
             >
               {/* Year Indicator */}
               <div style={{
                 position: 'absolute',
-                left: '50%',
+                left: isMobile ? '20px' : '50%',
                 transform: 'translateX(-50%)',
                 backgroundColor: 'var(--secondary)',
                 color: 'white',
                 padding: '4px 12px',
                 borderRadius: '4px',
-                fontSize: '0.9rem',
+                fontSize: '0.8rem',
                 fontWeight: 'bold',
                 zIndex: 3
               }}>
@@ -107,35 +111,35 @@ const Milestones = () => {
               </div>
 
               <div className={`brick-card ${item.type === 'yellow' ? 'brick-card-yellow' : ''}`} style={{
-                width: '42%',
-                margin: '0 4%'
+                width: isMobile ? '100%' : '42%',
+                margin: isMobile ? '0' : '0 4%',
+                padding: isMobile ? '1.5rem' : '2rem'
               }}>
                 <div style={{
                   position: 'absolute',
-                  top: '-15px',
-                  [index % 2 === 0 ? 'right' : 'left']: '20px',
-                  fontSize: '2rem',
+                  top: '-10px',
+                  [isMobile ? 'right' : (index % 2 === 0 ? 'right' : 'left')]: '15px',
+                  fontSize: '1.5rem',
                   opacity: 0.1,
                   fontWeight: '900'
                 }}>
                   {item.year}
                 </div>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', lineHeight: '1.2' }}>{item.school}</h3>
-                <h4 style={{ fontSize: '1.1rem', color: 'var(--primary-dark)', marginBottom: '1rem', fontWeight: '600' }}>
+                <h3 style={{ fontSize: isMobile ? '1.2rem' : '1.5rem', marginBottom: '0.5rem', lineHeight: '1.2' }}>{item.school}</h3>
+                <h4 style={{ fontSize: '1rem', color: 'var(--primary-dark)', marginBottom: '1rem', fontWeight: '600' }}>
                   {item.role}
                 </h4>
-                <p style={{ fontSize: '1rem', color: 'var(--text)', opacity: 0.8 }}>{item.desc}</p>
+                <p style={{ fontSize: '0.95rem', color: 'var(--text)', opacity: 0.8 }}>{item.desc}</p>
                 
-                {/* Brick Texture Detail */}
                 <div style={{
-                  marginTop: '1.5rem',
+                  marginTop: '1.2rem',
                   display: 'flex',
                   gap: '4px'
                 }}>
                   {[1,2,3].map(i => (
                     <div key={i} style={{ 
-                      width: '20px', 
-                      height: '4px', 
+                      width: '15px', 
+                      height: '3px', 
                       backgroundColor: item.type === 'yellow' ? 'var(--secondary)' : 'var(--primary)',
                       opacity: 0.3,
                       borderRadius: '2px'

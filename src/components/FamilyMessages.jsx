@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
+import { useMediaQuery } from './useMediaQuery';
 
 const messages = [
   {
@@ -25,23 +26,25 @@ const messages = [
 ];
 
 const FamilyMessages = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
   return (
-    <section className="family-messages" style={{ backgroundColor: '#fff', padding: '100px 0' }}>
+    <section className="family-messages" style={{ backgroundColor: '#fff', padding: isMobile ? '60px 0' : '100px 0' }}>
       <div className="container">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: '5rem' }}
+          style={{ textAlign: 'center', marginBottom: isMobile ? '3rem' : '5rem' }}
         >
-          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}>Heartfelt <span style={{ color: 'var(--primary-dark)' }}>Notes</span></h2>
-          <div style={{ width: '80px', height: '4px', backgroundColor: 'var(--primary)', margin: '1rem auto' }} />
+          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>Heartfelt <span style={{ color: 'var(--primary-dark)' }}>Notes</span></h2>
+          <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--primary)', margin: '1rem auto' }} />
         </motion.div>
 
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-          gap: '3rem' 
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(280px, 1fr))', 
+          gap: isMobile ? '2rem' : '3rem' 
         }}>
           {messages.map((msg, index) => (
             <motion.div
@@ -52,31 +55,31 @@ const FamilyMessages = () => {
               transition={{ delay: index * 0.15 }}
               className={index % 2 === 0 ? "brick-card" : "brick-card-yellow"}
               style={{ 
-                padding: '3rem 2rem', 
+                padding: isMobile ? '2rem 1.5rem' : '3rem 2rem', 
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between'
               }}
             >
               <div>
-                <Quote size={40} color={index % 2 === 0 ? "var(--primary)" : "var(--secondary)"} style={{ opacity: 0.2, marginBottom: '1.5rem' }} />
+                <Quote size={isMobile ? 30 : 40} color={index % 2 === 0 ? "var(--primary)" : "var(--secondary)"} style={{ opacity: 0.2, marginBottom: '1rem' }} />
                 <p style={{ 
-                  fontSize: '1.1rem', 
+                  fontSize: isMobile ? '1rem' : '1.1rem', 
                   fontStyle: 'italic', 
-                  marginBottom: '2rem',
+                  marginBottom: '1.5rem',
                   color: 'var(--text)',
                   lineHeight: '1.7'
                 }}>
                   "{msg.text}"
                 </p>
               </div>
-              <div style={{ borderTop: `1px solid ${index % 2 === 0 ? '#eee' : 'rgba(0,0,0,0.1)'}`, paddingTop: '1.5rem' }}>
-                <h4 style={{ fontSize: '1.2rem', color: 'var(--secondary)', fontWeight: 'bold' }}>{msg.name}</h4>
+              <div style={{ borderTop: `1px solid ${index % 2 === 0 ? '#eee' : 'rgba(0,0,0,0.1)'}`, paddingTop: '1rem' }}>
+                <h4 style={{ fontSize: '1.1rem', color: 'var(--secondary)', fontWeight: 'bold' }}>{msg.name}</h4>
                 <span style={{ 
                   color: index % 2 === 0 ? 'var(--primary-dark)' : 'var(--secondary)', 
                   fontWeight: '600',
                   opacity: 0.8,
-                  fontSize: '0.9rem'
+                  fontSize: '0.85rem'
                 }}>
                   {msg.relation}
                 </span>

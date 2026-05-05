@@ -1,66 +1,83 @@
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, PartyPopper } from 'lucide-react';
+import { MapPin, Phone, PartyPopper } from 'lucide-react';
+import { useMediaQuery } from './useMediaQuery';
 
 const MapLocation = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
   return (
-    <section className="map-location" style={{ backgroundColor: 'var(--bg)', padding: '100px 0' }}>
+    <section className="map-location" style={{ backgroundColor: 'var(--bg)', padding: isMobile ? '60px 0' : '100px 0' }}>
       <div className="container">
         <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
-          gap: '4rem',
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          gap: isMobile ? '3rem' : '4rem',
           alignItems: 'center'
         }}>
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: isMobile ? 0 : -50, y: isMobile ? 30 : 0 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true }}
+            style={{ flex: 1, textAlign: isMobile ? 'center' : 'left' }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-              <PartyPopper color="var(--primary-dark)" size={32} />
-              <span style={{ fontWeight: 'bold', letterSpacing: '2px', color: 'var(--primary-dark)', textTransform: 'uppercase' }}>
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: isMobile ? 'center' : 'flex-start',
+              gap: '1rem', 
+              marginBottom: '1rem' 
+            }}>
+              <PartyPopper color="var(--primary-dark)" size={isMobile ? 24 : 32} />
+              <span style={{ fontWeight: 'bold', letterSpacing: '2px', color: 'var(--primary-dark)', textTransform: 'uppercase', fontSize: isMobile ? '0.8rem' : '1rem' }}>
                 Event Venue
               </span>
             </div>
             
-            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', marginBottom: '2rem', lineHeight: '1.2' }}>
+            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', marginBottom: '1.5rem', lineHeight: '1.2' }}>
               Join the <span style={{ color: 'var(--primary-dark)' }}>Celebration</span>
             </h2>
             
-            <p style={{ fontSize: '1.2rem', marginBottom: '3rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+            <p style={{ fontSize: isMobile ? '1.1rem' : '1.2rem', marginBottom: '2.5rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
               We are honored to celebrate Mrs. Sellammal's retirement at <strong>R K Mahal</strong>. 
-              Your presence will make this milestone even more special as we honor her 35-year legacy.
+              Your presence will make this milestone even more special.
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-              <div className="brick-card" style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem', padding: '1.5rem' }}>
-                <div style={{ padding: '12px', backgroundColor: 'var(--primary-light)', borderRadius: '8px' }}>
-                  <MapPin color="var(--secondary)" />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div className="brick-card" style={{ 
+                display: 'flex', 
+                flexDirection: isMobile ? 'column' : 'row',
+                alignItems: isMobile ? 'center' : 'flex-start', 
+                gap: '1rem', 
+                padding: '1.5rem',
+                textAlign: isMobile ? 'center' : 'left'
+              }}>
+                <div style={{ padding: '10px', backgroundColor: 'var(--primary-light)', borderRadius: '8px' }}>
+                  <MapPin color="var(--secondary)" size={20} />
                 </div>
                 <div>
-                  <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>Location</h4>
-                  <p style={{ opacity: 0.8 }}>R K Mahal, Mariyamman Kovil St, Vizhithiyur, Seshamoolai, Puducherry - 609607</p>
+                  <h4 style={{ fontSize: '1.1rem', marginBottom: '0.3rem' }}>Location</h4>
+                  <p style={{ opacity: 0.8, fontSize: '0.9rem' }}>R K Mahal, Mariyamman Kovil St, Vizhithiyur, Puducherry - 609607</p>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '2rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <Phone size={20} color="var(--primary-dark)" />
-                  <span style={{ fontWeight: '600' }}>Venue Contact Available</span>
-                </div>
+              <div style={{ display: 'flex', justifyContent: isMobile ? 'center' : 'flex-start', alignItems: 'center', gap: '0.8rem' }}>
+                <Phone size={18} color="var(--primary-dark)" />
+                <span style={{ fontWeight: '600', fontSize: '0.9rem' }}>Venue Contact Available</span>
               </div>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: isMobile ? 0 : 50, y: isMobile ? 30 : 0 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true }}
             style={{ 
-              height: '500px', 
+              width: '100%',
+              flex: 1,
+              height: isMobile ? '350px' : '500px', 
               borderRadius: '4px', 
               overflow: 'hidden',
-              boxShadow: '20px 20px 0px var(--primary)',
+              boxShadow: isMobile ? '10px 10px 0px var(--primary)' : '20px 20px 0px var(--primary)',
               border: '2px solid #eee',
               position: 'relative'
             }}
