@@ -78,7 +78,7 @@ const Hero = () => {
                 marginBottom: '1.2rem'
               }}
             >
-              Honoring 35 Years of Leadership
+              Honoring 36 Years of Leadership
             </motion.div>
             
             <h1 style={{ 
