@@ -14,7 +14,7 @@ const milestones = [
     school: "Municipal Middle School, Mayiladuthurai",
     role: "Secondary Grade Assistant",
     desc: "Promoted and recognized for exceptional classroom management.",
-    type: "yellow"
+    type: "purple"
   },
   {
     year: "2005",
@@ -28,7 +28,7 @@ const milestones = [
     school: "Panchayat Union Middle School, Kuthalam",
     role: "Headmistress",
     desc: "Appointed as Headmistress, leading the school to new heights of academic excellence.",
-    type: "yellow"
+    type: "purple"
   },
   {
     year: "2024",
@@ -52,7 +52,7 @@ const Milestones = () => {
           style={{ textAlign: 'center', marginBottom: isMobile ? '3rem' : '6rem' }}
         >
           <h2 style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', color: 'var(--secondary)' }}>
-            Building a Legacy <span style={{ color: 'var(--primary-dark)' }}>Brick by Brick</span>
+            Building a Legacy <span style={{ color: 'var(--primary)' }}>Brick by Brick</span>
           </h2>
           <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginTop: '1rem' }}>
             A career built on foundation, strength, and unwavering dedication.
@@ -99,7 +99,7 @@ const Milestones = () => {
                 position: 'absolute',
                 left: isMobile ? '20px' : '50%',
                 transform: 'translateX(-50%)',
-                backgroundColor: 'var(--secondary)',
+                backgroundColor: 'var(--primary-dark)',
                 color: 'white',
                 padding: '4px 12px',
                 borderRadius: '4px',
@@ -110,7 +110,7 @@ const Milestones = () => {
                 {item.year}
               </div>
 
-              <div className={`brick-card ${item.type === 'yellow' ? 'brick-card-yellow' : ''}`} style={{
+              <div className={`brick-card ${item.type === 'purple' ? 'brick-card-purple' : ''}`} style={{
                 width: isMobile ? '100%' : '42%',
                 margin: isMobile ? '0' : '0 4%',
                 padding: isMobile ? '1.5rem' : '2rem'
@@ -126,7 +126,7 @@ const Milestones = () => {
                   {item.year}
                 </div>
                 <h3 style={{ fontSize: isMobile ? '1.2rem' : '1.5rem', marginBottom: '0.5rem', lineHeight: '1.2' }}>{item.school}</h3>
-                <h4 style={{ fontSize: '1rem', color: 'var(--primary-dark)', marginBottom: '1rem', fontWeight: '600' }}>
+                <h4 style={{ fontSize: '1rem', color: 'var(--primary)', marginBottom: '1rem', fontWeight: '600' }}>
                   {item.role}
                 </h4>
                 <p style={{ fontSize: '0.95rem', color: 'var(--text)', opacity: 0.8 }}>{item.desc}</p>
@@ -140,7 +140,7 @@ const Milestones = () => {
                     <div key={i} style={{ 
                       width: '15px', 
                       height: '3px', 
-                      backgroundColor: item.type === 'yellow' ? 'var(--secondary)' : 'var(--primary)',
+                      backgroundColor: item.type === 'purple' ? 'var(--primary-dark)' : 'var(--primary)',
                       opacity: 0.3,
                       borderRadius: '2px'
                     }} />
